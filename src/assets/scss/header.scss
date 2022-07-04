@@ -1,0 +1,45 @@
+.mondial-relay-header {
+    &__title {
+      color: #666;
+      text-align: center;
+      background: #eee;
+      padding: 3px;
+      border-bottom: solid 1px #ddd;
+    }
+    &__row {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: 50% 50%;
+      @media (min-width: 576px) {
+        grid-template-columns: 20% 80%;
+      }
+      @media (max-width: 576px) {
+        grid-template-columns: 100%;
+      }
+    }
+  
+    &__column {
+      display: flex;
+      padding: 8px 20px 8px 20px;
+      align-items: center;
+  
+      @media (min-width: 576px) {
+        &--left {
+          justify-content: flex-start;
+        }
+        &--right {
+          justify-content: flex-end;
+        }
+      }
+      @media (max-width: 576px) {
+        justify-content: center;
+      }
+    }
+  
+    &__logo {
+      width: 64px;
+      @media (max-width: 576px) {
+        margin: auto;
+      }
+    }
+  }

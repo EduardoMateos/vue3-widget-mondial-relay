@@ -1,0 +1,85 @@
+.mondial-relay-widget {
+    background-color: white;
+    border: solid 1px #ddd;
+    max-width: 980px;
+    margin: auto;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  }
+  .mondial-relay-row {
+    display: flex;
+    max-height: 566px;
+  }
+  
+  @media (max-width: 576px) {
+    .mondial-relay-widget-hide-mobile {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 576px) {
+    .mondial-relay-widget-hide-desktop {
+      display: none;
+    }
+  }
+  
+  .mondial-relay-left-column {
+    padding: 10px;
+    @media (max-width: 576px) {
+      flex: 100%;
+    }
+    @media (min-width: 576px) {
+      flex: 35%;
+    }
+  }
+  .mondial-relay-right-column {
+    padding: 10px;
+    @media (max-width: 576px) {
+      flex: 100%;
+    }
+    @media (min-width: 576px) {
+      flex: 65%;
+    }
+  }
+  .mondial-relay-parcel-list {
+    overflow-y: scroll;
+    height: 450px;
+    &__shop {
+      padding: 8px;
+      cursor: pointer;
+      border-bottom: 1px solid #c4c4c4;
+      text-align: left;
+      &__name {
+        color: #ca0047;
+      }
+      &--selected {
+        background-color: #f0f0f0;
+        border-left: solid 2px #ca0047;
+      }
+      &--disabled{
+        opacity: .4;
+      }
+    }
+  }
+  
+  .mondial-relay-tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    button {
+      background-color: inherit;
+      float: center;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      &:hover {
+        background-color: #ddd;
+      }
+      &.active {
+        background-color: #ccc;
+      }
+    }
+  }

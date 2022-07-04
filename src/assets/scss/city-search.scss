@@ -1,0 +1,52 @@
+.mondial-relay-city {
+    position: relative;
+    &__input {
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+      box-sizing: border-box;
+      &:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: black;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+      }
+    }
+  
+    &__dropdown {
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      text-align: left;
+      z-index: 1001;
+      border-right: 1px solid #ced4da;
+      border-bottom: 1px solid #ced4da;
+      border-left: 1px solid #ced4da;
+      ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        li {
+          padding: 6px;
+          cursor: pointer;
+          &:hover {
+            background-color: #f0f0f0;
+            border-left: solid 2px #ca0047;
+          }
+        }
+      }
+      &--selected {
+        background-color: #f0f0f0;
+        border-left: solid 2px #ca0047;
+      }
+    }
+  }
