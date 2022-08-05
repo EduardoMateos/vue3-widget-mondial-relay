@@ -73,7 +73,7 @@ Object example:
 ```JS
 import Vue3WidgetMondialRelay from 'vue3-widget-mondial-relay';
 
-import 'vue-widget-mondial-relay/dist/widget-mondial-relay.min.css';
+import 'vue3-widget-mondial-relay/dist/vue3-widget-mondial-relay.min.css';
 
 export default {
   name: 'App',
