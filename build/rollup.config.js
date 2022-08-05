@@ -7,10 +7,12 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import babel from '@rollup/plugin-babel';
-import PostCSS from 'rollup-plugin-postcss';
+import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
-import scss from 'rollup-plugin-scss'
+import image from '@rollup/plugin-image';
+import atImport from 'postcss-import';
+import url from 'postcss-url';
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
@@ -46,18 +48,30 @@ const baseConfig = {
       css: true,
     },
     postVue: [
+      image(),
       resolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       }),
       // Process only `<style module>` blocks.
-      PostCSS({
+      postcss({
+        extract: true,
+        plugins: [
+          atImport(),
+          url({
+            url: "inline", // enable inline assets using base64 encoding
+            maxSize: 10, // maximum file size to inline (in kilobytes)
+            fallback: "copy", // fallback method to use if max size is exceeded
+          })
+        ]
+      }),
+      /*PostCSS({
         modules: {
           generateScopedName: '[local]___[hash:base64:5]',
         },
         include: /&module=.*\.css$/,
       }),
       // Process all `<style>` blocks except `<style module>`.
-      PostCSS({ include: /(?<!&module=.*)\.css$/ }),
+      PostCSS({ include: /(?<!&module=.*)\.css$/ }),*/
       commonjs(),
     ],
     babel: {
@@ -65,7 +79,6 @@ const baseConfig = {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
       babelHelpers: 'bundled',
     },
-    //scss: scss()
   },
 };
 
